@@ -33,12 +33,12 @@ const InputError = require('../exceptions/InputError');
                 status: 'fail',
                 message: `${response.message}`,
             })
-            newResponse.code(response.output.statusCode)
+            newResponse.code(response.statusCode)
             return newResponse;
         }
     
         if (response.isBoom) {
-            const statusCode = response.output.statusCode;
+            const statusCode = response.statusCode;
             if (statusCode === 400) {
                 return h.response({
                     status: 'fail',
